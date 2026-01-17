@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", "Menlo", monospace;
+  --color-terminal-bg: #1a1b26;
+  --color-terminal-green: #9ece6a;
+  --color-terminal-blue: #7aa2f7;
+  --color-terminal-purple: #bb9af7;
+  --color-terminal-orange: #ff9e64;
+  --color-terminal-text: #c0caf5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  @apply bg-slate-950 text-slate-100;
+}
+
+/* Terminal cursor blink */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+}
