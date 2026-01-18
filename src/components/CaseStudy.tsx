@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { caseStudy } from '../data/caseStudy';
 
 export function CaseStudy() {
@@ -386,13 +387,27 @@ function PlanTab() {
           <span className="text-slate-300 font-medium">redshipblueship-unified-port-plan.md</span>
           <span className="text-slate-500 text-sm">885 lines</span>
         </div>
-        <div className="overflow-auto max-h-[70vh]">
+        <div className="overflow-auto max-h-[70vh] p-6">
           {loading ? (
             <div className="p-8 text-center text-slate-400">Loading plan...</div>
           ) : (
-            <pre className="p-4 text-xs text-slate-300 font-mono whitespace-pre-wrap">
-              {planContent}
-            </pre>
+            <div className="prose prose-invert prose-sm max-w-none
+              prose-headings:text-white prose-headings:font-semibold
+              prose-h1:text-2xl prose-h1:border-b prose-h1:border-white/10 prose-h1:pb-2
+              prose-h2:text-xl prose-h2:text-purple-400 prose-h2:mt-8
+              prose-h3:text-lg prose-h3:text-blue-400
+              prose-p:text-slate-300
+              prose-strong:text-white
+              prose-code:text-green-400 prose-code:bg-slate-800/50 prose-code:px-1 prose-code:rounded
+              prose-pre:bg-[var(--color-terminal-bg)] prose-pre:text-[var(--color-terminal-text)]
+              prose-table:text-sm
+              prose-th:text-slate-400 prose-th:font-medium prose-th:border-white/10
+              prose-td:text-slate-300 prose-td:border-white/10
+              prose-li:text-slate-300
+              prose-a:text-purple-400 prose-a:no-underline hover:prose-a:underline
+            ">
+              <ReactMarkdown>{planContent || ''}</ReactMarkdown>
+            </div>
           )}
         </div>
       </div>
