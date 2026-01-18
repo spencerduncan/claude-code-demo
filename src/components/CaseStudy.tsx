@@ -391,23 +391,37 @@ function PlanTab() {
           {loading ? (
             <div className="p-8 text-center text-slate-400">Loading plan...</div>
           ) : (
-            <div className="prose prose-invert prose-sm max-w-none
-              prose-headings:text-white prose-headings:font-semibold
-              prose-h1:text-2xl prose-h1:border-b prose-h1:border-white/10 prose-h1:pb-2
-              prose-h2:text-xl prose-h2:text-purple-400 prose-h2:mt-8
-              prose-h3:text-lg prose-h3:text-blue-400
-              prose-p:text-slate-300
-              prose-strong:text-white
-              prose-code:text-green-400 prose-code:bg-slate-800/50 prose-code:px-1 prose-code:rounded
-              prose-pre:bg-[var(--color-terminal-bg)] prose-pre:text-[var(--color-terminal-text)]
-              prose-table:text-sm
-              prose-th:text-slate-400 prose-th:font-medium prose-th:border-white/10
-              prose-td:text-slate-300 prose-td:border-white/10
-              prose-li:text-slate-300
-              prose-a:text-purple-400 prose-a:no-underline hover:prose-a:underline
-            ">
-              <ReactMarkdown>{planContent || ''}</ReactMarkdown>
-            </div>
+            <ReactMarkdown
+              components={{
+                h1: ({children}) => <h1 className="text-2xl font-bold text-white border-b border-white/10 pb-2 mb-4">{children}</h1>,
+                h2: ({children}) => <h2 className="text-xl font-semibold text-purple-400 mt-8 mb-4">{children}</h2>,
+                h3: ({children}) => <h3 className="text-lg font-semibold text-blue-400 mt-6 mb-3">{children}</h3>,
+                p: ({children}) => <p className="text-slate-300 mb-4 leading-relaxed">{children}</p>,
+                strong: ({children}) => <strong className="text-white font-semibold">{children}</strong>,
+                em: ({children}) => <em className="text-slate-200">{children}</em>,
+                code: ({children, className}) => {
+                  const isBlock = className?.includes('language-');
+                  return isBlock ? (
+                    <code className="text-[var(--color-terminal-text)]">{children}</code>
+                  ) : (
+                    <code className="text-green-400 bg-slate-800/50 px-1.5 py-0.5 rounded text-sm">{children}</code>
+                  );
+                },
+                pre: ({children}) => <pre className="bg-[var(--color-terminal-bg)] text-[var(--color-terminal-text)] p-4 rounded-lg overflow-x-auto mb-4 text-sm">{children}</pre>,
+                ul: ({children}) => <ul className="list-disc list-inside text-slate-300 mb-4 space-y-1">{children}</ul>,
+                ol: ({children}) => <ol className="list-decimal list-inside text-slate-300 mb-4 space-y-1">{children}</ol>,
+                li: ({children}) => <li className="text-slate-300">{children}</li>,
+                a: ({href, children}) => <a href={href} className="text-purple-400 hover:underline">{children}</a>,
+                table: ({children}) => <table className="w-full text-sm mb-4 border-collapse">{children}</table>,
+                thead: ({children}) => <thead className="bg-slate-800/50">{children}</thead>,
+                th: ({children}) => <th className="text-slate-400 font-medium px-3 py-2 text-left border border-white/10">{children}</th>,
+                td: ({children}) => <td className="text-slate-300 px-3 py-2 border border-white/10">{children}</td>,
+                hr: () => <hr className="border-white/10 my-8" />,
+                blockquote: ({children}) => <blockquote className="border-l-4 border-purple-500/50 pl-4 italic text-slate-400 my-4">{children}</blockquote>,
+              }}
+            >
+              {planContent || ''}
+            </ReactMarkdown>
           )}
         </div>
       </div>
