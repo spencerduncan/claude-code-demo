@@ -25,6 +25,9 @@ export function ProcessContrast() {
           "Software engineering is programming integrated over time."
         </p>
         <p className="text-slate-500 text-sm mt-2">— Titus Winters, Google SWE Book</p>
+        <p className="text-slate-600 text-xs mt-4">
+          (This site was obviously vibecoded—but it's a fancy PowerPoint, not a webservice.)
+        </p>
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
