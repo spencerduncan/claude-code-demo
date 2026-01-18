@@ -1,10 +1,11 @@
 import './index.css';
 import { Hero } from './components/Hero';
+import { ProcessContrast } from './components/ProcessContrast';
 import { DirectorExecutor } from './components/DirectorExecutor';
 import { DemoSection } from './components/DemoSection';
 import { ParallelViz } from './components/ParallelViz';
-import { CTOComparison, AdjutantTable } from './components/CTOComparison';
-import { LogisticsSection, KeyTakeaways } from './components/Logistics';
+import { AdjutantTable } from './components/CTOComparison';
+import { KeyTakeaways } from './components/Logistics';
 import { CaseStudy } from './components/CaseStudy';
 import { demoSections, pivotInstructions } from './data/demos';
 import { motion } from 'framer-motion';
@@ -50,11 +51,21 @@ function App() {
       {/* Hero */}
       <Hero />
 
+      {/* Process vs Vibes Contrast */}
+      <Section
+        id="approach"
+        title="Process Over Vibes"
+        subtitle="The Difference"
+      >
+        <ProcessContrast />
+      </Section>
+
       {/* Director/Executor Model */}
       <Section
         id="model"
         title="How I Work"
-        subtitle="My Methodology"
+        subtitle="The Methodology"
+        className="bg-slate-900/50"
       >
         <DirectorExecutor />
       </Section>
@@ -165,30 +176,12 @@ function App() {
         </div>
       </Section>
 
-      {/* CTO Comparison */}
-      <Section
-        id="comparison"
-        title="The Value Proposition"
-        subtitle="What Hiring Me Gets You"
-      >
-        <CTOComparison />
-      </Section>
-
       {/* Case Study */}
       <section id="case-study" className="py-20 px-4 md:px-8 bg-slate-900/50">
         <div className="max-w-6xl mx-auto">
           <CaseStudy />
         </div>
       </section>
-
-      {/* Logistics Application */}
-      <Section
-        id="logistics"
-        title=""
-        className="bg-slate-900/50"
-      >
-        <LogisticsSection />
-      </Section>
 
       {/* Key Takeaways */}
       <Section
@@ -200,14 +193,11 @@ function App() {
 
       {/* Footer */}
       <footer className="py-12 px-4 text-center border-t border-white/5">
-        <p className="text-slate-500 text-sm">
-          Real prompts from real projects • All examples from my work
+        <p className="text-slate-400 text-lg mb-2">
+          spencerjduncan@gmail.com
         </p>
-        <p className="text-slate-600 text-xs mt-2">
-          oottracker • redshipblueship • KinderBotII
-        </p>
-        <p className="text-slate-700 text-xs mt-4">
-          penny@example.com
+        <p className="text-slate-600 text-xs">
+          Real prompts from real projects
         </p>
       </footer>
     </div>

@@ -17,11 +17,8 @@ export function Hero() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-white">Penny Duncan</span>
+            <span className="text-white">Penelope Duncan</span>
           </h1>
-          <p className="text-2xl md:text-3xl text-slate-400 mb-2">
-            Senior Software Engineer
-          </p>
         </motion.div>
 
         <motion.p
@@ -30,8 +27,8 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          I've developed a <span className="gradient-text font-medium">process-oriented methodology</span> for directing AI
-          that turns one engineer into a parallel development team.
+          I make teams faster. <span className="gradient-text font-medium">Process-oriented AI direction</span> that
+          multiplies engineering output without adding headcount.
         </motion.p>
 
         <motion.div
@@ -62,16 +59,16 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <div>
-            <div className="text-3xl font-bold text-blue-400">5</div>
-            <div className="text-sm text-slate-500">Parallel Workers</div>
+            <div className="text-3xl font-bold text-blue-400">5×</div>
+            <div className="text-sm text-slate-500">Throughput</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-purple-400">1</div>
-            <div className="text-sm text-slate-500">Engineer</div>
+            <div className="text-3xl font-bold text-purple-400">+1</div>
+            <div className="text-sm text-slate-500">Headcount</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-green-400">0</div>
-            <div className="text-sm text-slate-500">Coordination Overhead</div>
+            <div className="text-3xl font-bold text-green-400">↓</div>
+            <div className="text-sm text-slate-500">Coordination Tax</div>
           </div>
         </motion.div>
       </div>
