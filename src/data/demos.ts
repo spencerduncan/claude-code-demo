@@ -238,18 +238,18 @@ export const directorExecutorPairs = [
 
 export const ctoComparison = {
   traditional: [
-    { label: "Hire 5 engineers", value: 100 },
-    { label: "Wait for sprint planning", value: 80 },
+    { label: "Headcount: 5 engineers", value: 100 },
+    { label: "Sprint planning overhead", value: 80 },
     { label: "2-week sprints, ~3 PRs/engineer", value: 60 },
     { label: "Review bottleneck", value: 70 },
     { label: "Context switching overhead", value: 85 },
   ],
   withClaude: [
-    { label: "One senior engineer + Claude", value: 20 },
-    { label: "Decompose epic → parallel workers → same day", value: 15 },
+    { label: "Headcount: 1 (me)", value: 20 },
+    { label: "Epic decomposed same day", value: 15 },
     { label: "5 PRs running simultaneously", value: 25 },
-    { label: "Claude handles branch management, PRs, issues", value: 10 },
-    { label: "Human reviews, decides, unblocks", value: 30 },
+    { label: "AI handles branch management, PRs, issues", value: 10 },
+    { label: "I review, decide, unblock", value: 30 },
   ]
 };
 
@@ -279,30 +279,30 @@ export const adjutantPatterns = [
 export const logisticsApplications = [
   {
     pattern: "Decomposition",
-    application: "Break operator workflows into atomic tasks that can be implemented in parallel"
+    application: "I break operator workflows into atomic tasks that run in parallel"
   },
   {
     pattern: "Pivot Analysis",
-    application: "When requirements change (new carrier API, changed regulations), instantly map impact across codebase"
+    application: "When requirements change, I instantly map impact across your codebase"
   },
   {
     pattern: "Parallel Velocity",
-    application: "Ship features faster than the contract deadline requires"
+    application: "I ship features faster than your contract deadline requires"
   },
   {
     pattern: "Quality Gates",
-    application: "Professional CI, stacked PRs - auditable code for enterprise clients"
+    application: "Professional CI, stacked PRs—auditable code for your enterprise clients"
   },
   {
     pattern: "Knowledge Retention",
-    application: "Patterns learned on one client engagement transfer to the next"
+    application: "Patterns I develop on your project persist and compound"
   }
 ];
 
 export const keyTakeaways = [
-  { title: "Velocity", description: "One engineer + Claude = 5x parallel development streams" },
-  { title: "Quality", description: "Stacked PRs, CI auditing, E2E infrastructure - not cowboy coding" },
-  { title: "Knowledge retention", description: "Patterns transfer across projects via memory system" },
-  { title: "Low friction", description: "Terse prompts, strategic questions, iterate fast" },
-  { title: "Professional output", description: "Real issues, real PRs, real CI - enterprise-ready" },
+  { title: "Velocity", description: "I operate as a 5-person team through parallel AI workers" },
+  { title: "Quality", description: "Stacked PRs, CI auditing, E2E infrastructure—not cowboy coding" },
+  { title: "Knowledge retention", description: "Patterns I develop transfer across projects automatically" },
+  { title: "Low friction", description: "Terse prompts, strategic questions, fast iteration" },
+  { title: "Professional output", description: "Real issues, real PRs, real CI—enterprise-ready" },
 ];

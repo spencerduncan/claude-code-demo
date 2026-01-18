@@ -74,13 +74,13 @@ export function DemoSection({ demo, index }: DemoSectionProps) {
             <h3 className="text-2xl font-bold text-white mt-1">{demo.title}</h3>
           </div>
 
-          {/* You / Claude breakdown */}
+          {/* I / AI breakdown */}
           <div className="space-y-4">
             <div className="glass rounded-lg p-4">
               <div className="flex items-start gap-3">
                 <span className="text-2xl">👤</span>
                 <div>
-                  <span className="text-blue-400 font-semibold text-sm">You:</span>
+                  <span className="text-blue-400 font-semibold text-sm">I do:</span>
                   <p className="text-slate-300 mt-1">{demo.youDid}</p>
                 </div>
               </div>
@@ -90,7 +90,7 @@ export function DemoSection({ demo, index }: DemoSectionProps) {
               <div className="flex items-start gap-3">
                 <span className="text-2xl">🤖</span>
                 <div>
-                  <span className="text-purple-400 font-semibold text-sm">Claude:</span>
+                  <span className="text-purple-400 font-semibold text-sm">AI does:</span>
                   <ul className="mt-1 space-y-1">
                     {demo.claudeDid.map((item, i) => (
                       <motion.li
@@ -110,9 +110,9 @@ export function DemoSection({ demo, index }: DemoSectionProps) {
             </div>
           </div>
 
-          {/* CTO Value */}
+          {/* Value */}
           <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 rounded-lg p-4">
-            <span className="text-green-400 font-semibold text-sm">CTO Value:</span>
+            <span className="text-green-400 font-semibold text-sm">Value delivered:</span>
             <p className="text-white mt-1">{demo.ctoValue}</p>
           </div>
 

@@ -8,7 +8,7 @@ export function CTOComparison() {
       <div className="space-y-4">
         <h3 className="text-xl font-semibold text-red-400 flex items-center gap-2">
           <span className="text-2xl">🏢</span>
-          Traditional Approach
+          Hire a Team
         </h3>
         <div className="space-y-3">
           {ctoComparison.traditional.map((item, i) => (
@@ -38,11 +38,11 @@ export function CTOComparison() {
         </div>
       </div>
 
-      {/* With Claude */}
+      {/* Hire Me */}
       <div className="space-y-4">
         <h3 className="text-xl font-semibold text-green-400 flex items-center gap-2">
           <span className="text-2xl">⚡</span>
-          With Claude as Adjutant
+          Hire Me
         </h3>
         <div className="space-y-3">
           {ctoComparison.withClaude.map((item, i) => (
@@ -84,10 +84,10 @@ export function AdjutantTable() {
           <span className="text-slate-400 font-medium text-sm">Phase</span>
         </div>
         <div className="px-4 py-3 border-r border-white/10">
-          <span className="text-blue-400 font-medium text-sm">You</span>
+          <span className="text-blue-400 font-medium text-sm">I say</span>
         </div>
         <div className="px-4 py-3">
-          <span className="text-purple-400 font-medium text-sm">Claude</span>
+          <span className="text-purple-400 font-medium text-sm">AI delivers</span>
         </div>
       </div>
 

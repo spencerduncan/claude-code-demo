@@ -53,8 +53,8 @@ function App() {
       {/* Director/Executor Model */}
       <Section
         id="model"
-        title="The Interaction Model"
-        subtitle="Director + Executor"
+        title="How I Work"
+        subtitle="My Methodology"
       >
         <DirectorExecutor />
       </Section>
@@ -62,14 +62,14 @@ function App() {
       {/* High-Value Pivot Instructions */}
       <Section
         id="pivots"
-        title="High-Value Pivot Instructions"
+        title="The Art of Direction"
         subtitle="Real Examples"
         className="bg-slate-900/50"
       >
         <div className="space-y-6">
           <p className="text-center text-slate-400 max-w-2xl mx-auto mb-8">
-            These are the prompts that demonstrate senior engineer leverage.
-            Short commands that trigger complex analysis and action.
+            Senior engineering isn't about typing faster—it's knowing what to ask.
+            Terse prompts that extract complex analysis.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {pivotInstructions.map((pivot, i) => (
@@ -87,11 +87,11 @@ function App() {
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <span className="text-blue-400 text-sm font-medium shrink-0">You:</span>
+                    <span className="text-blue-400 text-sm font-medium shrink-0">I do:</span>
                     <span className="text-slate-400 text-sm">{pivot.youDid}</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="text-purple-400 text-sm font-medium shrink-0">Claude:</span>
+                    <span className="text-purple-400 text-sm font-medium shrink-0">AI does:</span>
                     <span className="text-slate-400 text-sm">{pivot.claudeDid.join(', ')}</span>
                   </div>
                 </div>
@@ -104,8 +104,8 @@ function App() {
       {/* Parallel Workers Visualization */}
       <Section
         id="parallel"
-        title="5 Parallel Workers"
-        subtitle="Flagship Demo"
+        title="Parallel Execution"
+        subtitle="One Engineer, Five Streams"
       >
         <div className="max-w-3xl mx-auto">
           <div className="mb-8">
@@ -116,7 +116,7 @@ function App() {
               </span>
             </div>
             <p className="text-center text-slate-400">
-              One sentence. 5 simultaneous development streams.
+              One sentence from me. 5 simultaneous development streams.
             </p>
           </div>
           <ParallelViz />
@@ -126,8 +126,8 @@ function App() {
       {/* Demo Sections */}
       <div id="demos" className="bg-slate-900/50">
         <Section
-          title="Demo Patterns"
-          subtitle="Real Workflows"
+          title="Workflow Patterns"
+          subtitle="From My Projects"
         >
           <div className="space-y-8">
             {demoSections.slice(0, 4).map((demo, i) => (
@@ -140,7 +140,7 @@ function App() {
       {/* More Demo Sections */}
       <Section
         title="Quality & Knowledge"
-        subtitle="Enterprise Patterns"
+        subtitle="Professional Output"
       >
         <div className="space-y-8">
           {demoSections.slice(4).map((demo, i) => (
@@ -152,14 +152,14 @@ function App() {
       {/* Adjutant Patterns */}
       <Section
         id="adjutant"
-        title="Adjutant Patterns"
-        subtitle="Information Operations"
+        title="The Process Cycle"
+        subtitle="Reveal → Plan → Execute → Iterate"
         className="bg-slate-900/50"
       >
         <div className="max-w-4xl mx-auto">
           <p className="text-center text-slate-400 mb-8">
-            Beyond execution, Claude operates as an <span className="text-purple-400 font-medium">adjutant</span> —
-            gathering intel, synthesizing status, coordinating parallel workstreams.
+            My methodology treats AI as an <span className="text-purple-400 font-medium">adjutant</span>—gathering intel,
+            synthesizing status, filling in implementation from design intent.
           </p>
           <AdjutantTable />
         </div>
@@ -168,8 +168,8 @@ function App() {
       {/* CTO Comparison */}
       <Section
         id="comparison"
-        title="The CTO Comparison"
-        subtitle="Traditional vs Adjutant"
+        title="The Value Proposition"
+        subtitle="What Hiring Me Gets You"
       >
         <CTOComparison />
       </Section>
@@ -201,10 +201,13 @@ function App() {
       {/* Footer */}
       <footer className="py-12 px-4 text-center border-t border-white/5">
         <p className="text-slate-500 text-sm">
-          Built with Claude Code • Real prompts from real projects
+          Real prompts from real projects • All examples from my work
         </p>
         <p className="text-slate-600 text-xs mt-2">
           oottracker • redshipblueship • KinderBotII
+        </p>
+        <p className="text-slate-700 text-xs mt-4">
+          penny@example.com
         </p>
       </footer>
     </div>

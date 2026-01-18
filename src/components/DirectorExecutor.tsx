@@ -9,13 +9,13 @@ export function DirectorExecutor() {
         <div className="px-6 py-4 border-r border-white/10">
           <h3 className="text-lg font-semibold text-blue-400 flex items-center gap-2">
             <span className="text-2xl">👤</span>
-            You (Director)
+            I Direct
           </h3>
         </div>
         <div className="px-6 py-4">
           <h3 className="text-lg font-semibold text-purple-400 flex items-center gap-2">
             <span className="text-2xl">🤖</span>
-            Claude (Executor)
+            AI Executes
           </h3>
         </div>
       </div>
@@ -42,8 +42,8 @@ export function DirectorExecutor() {
       {/* Key Insight */}
       <div className="px-6 py-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-t border-white/10">
         <p className="text-slate-400 text-sm italic">
-          <span className="text-slate-200 font-medium">Key insight:</span> You're not explaining <em>how</em> to code.
-          You're stating <em>what</em> you want and <em>when</em> to pivot. Claude handles the execution complexity.
+          <span className="text-slate-200 font-medium">Key insight:</span> I don't explain <em>how</em> to code.
+          I state <em>what</em> I want and <em>when</em> to pivot. The AI handles the execution complexity.
         </p>
       </div>
     </div>

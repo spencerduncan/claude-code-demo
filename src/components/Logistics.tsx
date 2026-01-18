@@ -5,9 +5,9 @@ export function LogisticsSection() {
   return (
     <div className="space-y-8">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-white mb-4">For Logistics & Operations</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">What I Bring to Your Project</h2>
         <p className="text-slate-400 max-w-2xl mx-auto">
-          These patterns apply directly to building software that helps logistics operators plan operations.
+          These patterns apply directly to building software for logistics operators—or any domain with tight deadlines.
         </p>
       </div>
 
@@ -34,7 +34,7 @@ export function KeyTakeaways() {
   return (
     <div className="space-y-8">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-white mb-4">Key Takeaways for CTOs</h2>
+        <h2 className="text-3xl font-bold text-white mb-4">What You Get</h2>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -69,10 +69,10 @@ export function KeyTakeaways() {
       >
         <div className="glass rounded-xl p-8 max-w-2xl mx-auto">
           <p className="text-2xl font-bold text-white mb-4">
-            The pitch isn't "AI writes code."
+            One senior engineer who knows how to direct AI
           </p>
           <p className="text-xl text-purple-400 font-medium">
-            It's "AI handles the coordination overhead that slows down senior engineers."
+            ships like a full team—without the coordination overhead.
           </p>
         </div>
       </motion.div>

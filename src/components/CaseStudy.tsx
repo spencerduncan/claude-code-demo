@@ -10,13 +10,13 @@ export function CaseStudy() {
       {/* Header */}
       <div className="text-center">
         <span className="text-purple-400 text-sm font-medium uppercase tracking-wider">
-          Full Case Study
+          Case Study
         </span>
         <h2 className="text-3xl md:text-4xl font-bold text-white mt-2">
           {caseStudy.title}
         </h2>
         <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
-          {caseStudy.subtitle}
+          How I navigate architecture pivots: reveal constraints, plan with evidence, execute in parallel.
         </p>
       </div>
 
