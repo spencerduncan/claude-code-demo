@@ -186,19 +186,6 @@ Wave 4: #389←#388, #393←#391+#392, #396←#394+#391`,
     ctoValue: "Professional test infrastructure across 9 PRs"
   },
   {
-    id: "stacked-prs",
-    title: "Stacked PRs for Reviewability",
-    subtitle: "Demo Section 6",
-    prompt: `"the tests PR is too big and should be split into one PR per test file"`,
-    youDid: "Request PR decomposition for reviewability.",
-    claudeDid: [
-      "Split large PR #63 into 8 atomic PRs (#66-73)",
-      "Each PR: one method + tests",
-      "Linear stack"
-    ],
-    ctoValue: "AI-generated code that's actually reviewable"
-  },
-  {
     id: "ci-gap",
     title: "CI Gap Detection",
     subtitle: "Demo Section 7",
