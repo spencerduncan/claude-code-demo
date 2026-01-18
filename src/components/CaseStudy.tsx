@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { caseStudy } from '../data/caseStudy';
 
 export function CaseStudy() {
@@ -355,7 +355,21 @@ function MetaprocessTab() {
 }
 
 function PlanTab() {
-  const [expanded, setExpanded] = useState(false);
+  const [planContent, setPlanContent] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/redshipblueship-unified-port-plan.md')
+      .then(res => res.text())
+      .then(text => {
+        setPlanContent(text);
+        setLoading(false);
+      })
+      .catch(() => {
+        setPlanContent(caseStudy.planExcerpt);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <motion.div
@@ -370,17 +384,16 @@ function PlanTab() {
       <div className="glass rounded-xl overflow-hidden">
         <div className="bg-slate-800/50 px-4 py-3 flex items-center justify-between">
           <span className="text-slate-300 font-medium">redshipblueship-unified-port-plan.md</span>
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="text-purple-400 text-sm hover:text-purple-300"
-          >
-            {expanded ? 'Collapse' : 'Expand Full Plan'}
-          </button>
+          <span className="text-slate-500 text-sm">885 lines</span>
         </div>
-        <div className={`overflow-auto transition-all duration-300 ${expanded ? 'max-h-[600px]' : 'max-h-[300px]'}`}>
-          <pre className="p-4 text-xs text-slate-300 font-mono whitespace-pre-wrap">
-{caseStudy.planExcerpt}
-          </pre>
+        <div className="overflow-auto max-h-[70vh]">
+          {loading ? (
+            <div className="p-8 text-center text-slate-400">Loading plan...</div>
+          ) : (
+            <pre className="p-4 text-xs text-slate-300 font-mono whitespace-pre-wrap">
+              {planContent}
+            </pre>
+          )}
         </div>
       </div>
 
@@ -392,7 +405,7 @@ function PlanTab() {
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300"
         >
-          View full plan on GitHub →
+          View on GitHub →
         </a>
       </div>
     </motion.div>
