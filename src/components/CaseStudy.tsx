@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { caseStudy } from '../data/caseStudy';
 
 export function CaseStudy() {
@@ -395,6 +396,7 @@ function PlanTab() {
             <div className="p-8 text-center text-slate-400">Loading plan...</div>
           ) : (
             <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
               components={{
                 h1: ({children}) => <h1 className="text-2xl font-bold text-white border-b border-white/10 pb-2 mb-4">{children}</h1>,
                 h2: ({children}) => <h2 className="text-xl font-semibold text-purple-400 mt-8 mb-4">{children}</h2>,
