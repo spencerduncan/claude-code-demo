@@ -360,8 +360,11 @@ function PlanTab() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/redshipblueship-unified-port-plan.md')
-      .then(res => res.text())
+    fetch(`${import.meta.env.BASE_URL}redshipblueship-unified-port-plan.md`)
+      .then(res => {
+        if (!res.ok) throw new Error('Not found');
+        return res.text();
+      })
       .then(text => {
         setPlanContent(text);
         setLoading(false);
