@@ -12,8 +12,24 @@ export interface Demo {
 
 export const pivotInstructions: Demo[] = [
   {
+    id: "single-library-pivot",
+    title: "Multi→Single Library",
+    prompt: `The current separate-DLL approach has fundamental problems...
+Symbol collision - both games define 1,158+ identically-named functions.
+Two windows - each game creates its own SDL window.
+Transition lag - loading/unloading DLLs takes seconds.`,
+    youDid: "Surface why current approach is failing. Request rearchitecture.",
+    claudeDid: [
+      "Analyzed why OoTMM solved it (single ROM)",
+      "Designed unified executable architecture",
+      "Created dependency graph for migration",
+      "Planned milestone-based testing"
+    ],
+    ctoValue: "Understanding the problem space before committing to a solution"
+  },
+  {
     id: "architecture-pivot",
-    title: "Architecture Pivot",
+    title: "Platform Pivot",
     prompt: `okay, well switching works at least. lets worry about this more later.
 look at the overall oottracker repo we have. Look at the open issues.
 Look at what we want in the end. Revise the plan to work with Project64
@@ -239,24 +255,24 @@ export const ctoComparison = {
 
 export const adjutantPatterns = [
   {
-    phase: "Before Deciding",
-    you: '"look at the overall repo... what we want in the end"',
-    claude: "Synthesizes codebase, backlog, goals into brief"
+    phase: "Reveal",
+    you: '"The current approach has fundamental problems..."',
+    claude: "Surfaces root causes, not just symptoms"
   },
   {
-    phase: "Before Changing",
-    you: '"Revise the plan. What do we need to do?"',
-    claude: "Maps ripple effects of decisions"
+    phase: "Plan",
+    you: '"What do we need? Is there work open?"',
+    claude: "Designs architecture with dependency graphs"
   },
   {
-    phase: "While Running",
-    you: '"status update on active issues"',
-    claude: "Aggregates across parallel workers, identifies blockers"
+    phase: "Execute",
+    you: '"Start workers on unblocked issues"',
+    claude: "Fills in implementation from design intent"
   },
   {
-    phase: "After Delivery",
-    you: '"CI is green but something\'s wrong"',
-    claude: "Audits systems for gaps you didn\'t know to check"
+    phase: "Iterate",
+    you: '"Where are agents requiring human input?"',
+    claude: "Identifies friction points to restructure"
   }
 ];
 
