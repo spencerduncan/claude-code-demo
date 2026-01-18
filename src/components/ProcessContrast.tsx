@@ -18,7 +18,16 @@ const vibeApproach = [
 
 export function ProcessContrast() {
   return (
-    <div className="grid lg:grid-cols-2 gap-8">
+    <div className="space-y-8">
+      {/* Tagline */}
+      <div className="text-center">
+        <p className="text-xl md:text-2xl text-slate-300 italic">
+          "Software engineering is programming integrated over time."
+        </p>
+        <p className="text-slate-500 text-sm mt-2">— Titus Winters, Google SWE Book</p>
+      </div>
+
+      <div className="grid lg:grid-cols-2 gap-8">
       {/* Process-Oriented */}
       <motion.div
         className="glass rounded-xl p-6"
@@ -82,6 +91,7 @@ export function ProcessContrast() {
           ))}
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }

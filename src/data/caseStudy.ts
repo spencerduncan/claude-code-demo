@@ -66,6 +66,55 @@ export const caseStudy = {
     { phase: "State preservation", gate: "RoundTrip passes" }
   ],
 
+  // Metaprocess Improvement: How this project improved the tooling
+  metaprocess: {
+    title: "Knowledge Extraction Loop",
+    subtitle: "Real project work → Extract patterns → Improve tooling → Apply to next project",
+
+    trigger: {
+      problem: "Symbol namespacing 1,158+ functions",
+      scale: "This is a Large-Scale Change (LSC) - mechanical transformation touching 1000+ symbols",
+      insight: "After namespacing, I realized: what stops someone from adding un-namespaced functions later?"
+    },
+
+    researchPath: [
+      { step: "Recognized this as an LSC problem", source: "Google SWE Book Chapter 22" },
+      { step: "Found academic framing", source: "Titus Winters - 'Non-Atomic Refactoring and Software Sustainability'" },
+      { step: "Key principle discovered", source: "The change isn't done until backsliding is prevented" }
+    ],
+
+    extraction: {
+      from: "redshipblueship symbol namespacing experience",
+      to: "reviewable-dev plugin: lsc-guide skill",
+      additions: [
+        "Backsliding prevention section with CI check examples",
+        "Static analysis rules for deprecated patterns",
+        "Build system visibility controls",
+        "Prevention mechanism table for different change types"
+      ]
+    },
+
+    codeExample: {
+      description: "CI check to prevent reintroduction of un-namespaced symbols",
+      code: `# .github/workflows/lint.yml
+- name: Check for un-namespaced symbols
+  run: |
+    # Fail if any function lacks OoT_ or MM_ prefix
+    grep -rE '^void [A-Z][a-z]+_' src/ | \\
+      grep -vE '(OoT_|MM_|Common_)' && exit 1 || exit 0`
+    },
+
+    loop: [
+      { emoji: "🔧", phase: "Do the work", action: "Namespace 1,158 functions in redshipblueship" },
+      { emoji: "💡", phase: "Notice the gap", action: "Realize backsliding prevention was missing" },
+      { emoji: "📚", phase: "Research", action: "Find academic + industry patterns (Winters, Google SWE Book)" },
+      { emoji: "🔄", phase: "Extract", action: "Add lsc-guide skill to reviewable-dev plugin" },
+      { emoji: "⬆️", phase: "Apply", action: "Next LSC benefits from accumulated knowledge" }
+    ],
+
+    keyInsight: "The work isn't done when the transformation completes. It's done when backsliding is prevented. Otherwise you're playing whack-a-mole forever."
+  },
+
   planExcerpt: `# RedShipBlueShip: Unified OoT+MM PC Port
 
 ## Vision

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { caseStudy } from '../data/caseStudy';
 
 export function CaseStudy() {
-  const [activeTab, setActiveTab] = useState<'overview' | 'triage' | 'testing' | 'plan'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'triage' | 'testing' | 'metaprocess' | 'plan'>('overview');
 
   return (
     <div className="space-y-8">
@@ -34,7 +34,7 @@ export function CaseStudy() {
 
       {/* Tab Navigation */}
       <div className="flex justify-center gap-2 flex-wrap">
-        {(['overview', 'triage', 'testing', 'plan'] as const).map((tab) => (
+        {(['overview', 'triage', 'testing', 'metaprocess', 'plan'] as const).map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -47,6 +47,7 @@ export function CaseStudy() {
             {tab === 'overview' && 'The Pivot'}
             {tab === 'triage' && 'Issue Triage'}
             {tab === 'testing' && 'Test Strategy'}
+            {tab === 'metaprocess' && 'Knowledge Loop'}
             {tab === 'plan' && 'Full Plan'}
           </button>
         ))}
@@ -57,6 +58,7 @@ export function CaseStudy() {
         {activeTab === 'overview' && <OverviewTab />}
         {activeTab === 'triage' && <TriageTab />}
         {activeTab === 'testing' && <TestingTab />}
+        {activeTab === 'metaprocess' && <MetaprocessTab />}
         {activeTab === 'plan' && <PlanTab />}
       </div>
     </div>
@@ -233,6 +235,119 @@ function TestingTab() {
               <code className="text-green-400 text-sm">{gate.gate}</code>
             </div>
           ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function MetaprocessTab() {
+  const meta = caseStudy.metaprocess;
+
+  return (
+    <motion.div
+      className="space-y-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
+      <p className="text-slate-400 text-center max-w-2xl mx-auto">
+        {meta.subtitle}
+      </p>
+
+      {/* The Trigger */}
+      <div className="glass rounded-xl p-6">
+        <h3 className="text-xl font-semibold text-yellow-400 mb-4">The Trigger</h3>
+        <div className="space-y-3">
+          <div className="flex items-start gap-3">
+            <span className="text-yellow-400 mt-1">⚡</span>
+            <div>
+              <span className="text-white font-medium">{meta.trigger.problem}</span>
+              <span className="text-slate-400"> — {meta.trigger.scale}</span>
+            </div>
+          </div>
+          <div className="bg-slate-800/50 rounded-lg p-4 border-l-2 border-yellow-400/50">
+            <p className="text-slate-300 italic">"{meta.trigger.insight}"</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Research Path */}
+      <div className="glass rounded-xl p-6">
+        <h3 className="text-xl font-semibold text-blue-400 mb-4">Research Path</h3>
+        <div className="space-y-3">
+          {meta.researchPath.map((item, i) => (
+            <motion.div
+              key={i}
+              className="flex items-center gap-4"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <span className="text-blue-400 font-mono text-sm w-8">{i + 1}.</span>
+              <span className="text-white">{item.step}</span>
+              <span className="text-slate-500 flex-1 border-b border-dotted border-white/10"></span>
+              <span className="text-slate-400 text-sm">{item.source}</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* The Loop */}
+      <div className="glass rounded-xl p-6 bg-gradient-to-r from-purple-500/10 to-blue-500/10">
+        <h3 className="text-lg font-semibold text-purple-400 mb-4">{meta.title}</h3>
+        <div className="grid md:grid-cols-5 gap-4">
+          {meta.loop.map((step, i) => (
+            <motion.div
+              key={i}
+              className="text-center"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <div className="text-2xl mb-2">{step.emoji}</div>
+              <div className="text-white font-medium text-sm">{step.phase}</div>
+              <div className="text-slate-400 text-xs mt-1">{step.action}</div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Code Example */}
+      <div className="glass rounded-xl p-6">
+        <h3 className="text-lg font-semibold text-green-400 mb-4">Backsliding Prevention</h3>
+        <p className="text-slate-400 text-sm mb-4">{meta.codeExample.description}</p>
+        <div className="bg-[var(--color-terminal-bg)] rounded-lg p-4 font-mono text-xs text-[var(--color-terminal-text)] overflow-x-auto">
+          <pre>{meta.codeExample.code}</pre>
+        </div>
+      </div>
+
+      {/* Extraction Results */}
+      <div className="glass rounded-xl p-6">
+        <h3 className="text-lg font-semibold text-purple-400 mb-4">What Got Extracted</h3>
+        <div className="grid md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <span className="text-slate-500 text-sm">From:</span>
+            <p className="text-white">{meta.extraction.from}</p>
+          </div>
+          <div>
+            <span className="text-slate-500 text-sm">To:</span>
+            <p className="text-white">{meta.extraction.to}</p>
+          </div>
+        </div>
+        <div className="space-y-2">
+          {meta.extraction.additions.map((addition, i) => (
+            <div key={i} className="flex items-start gap-3">
+              <span className="text-green-400 mt-1">+</span>
+              <span className="text-slate-300">{addition}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Key Insight */}
+      <div className="text-center">
+        <div className="inline-block bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl px-6 py-4 border border-purple-500/20">
+          <p className="text-slate-200 font-medium">{meta.keyInsight}</p>
         </div>
       </div>
     </motion.div>
