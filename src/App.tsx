@@ -5,6 +5,7 @@ import { DemoSection } from './components/DemoSection';
 import { ParallelViz } from './components/ParallelViz';
 import { CTOComparison, AdjutantTable } from './components/CTOComparison';
 import { LogisticsSection, KeyTakeaways } from './components/Logistics';
+import { CaseStudy } from './components/CaseStudy';
 import { demoSections, pivotInstructions } from './data/demos';
 import { motion } from 'framer-motion';
 
@@ -172,6 +173,13 @@ function App() {
       >
         <CTOComparison />
       </Section>
+
+      {/* Case Study */}
+      <section id="case-study" className="py-20 px-4 md:px-8 bg-slate-900/50">
+        <div className="max-w-6xl mx-auto">
+          <CaseStudy />
+        </div>
+      </section>
 
       {/* Logistics Application */}
       <Section
